@@ -5,7 +5,6 @@ const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
-const { type } = require("os");
 
 let team = [];
 
@@ -32,26 +31,132 @@ function startQuestion() {
 startQuestion();
 
 function managerQuestions() {
-  inquirer.prompt([
-    {
-      type: "input",
-      name: "managerName",
-      message: "What is the name of the manager?",
-    },
-    {
-      type: "input",
-      name: "managerId",
-      message: "What is the managers ID?",
-    },
-    {
-      type: "input",
-      name: "managerOffice",
-      message: "What is the managers office number?",
-    },
-    {
-      type: "input",
-      name: "managerEmail",
-      message: "What is the managers email?",
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "managerName",
+        message: "What is the name of the manager?",
+      },
+      {
+        type: "input",
+        name: "managerId",
+        message: "What is the managers ID?",
+      },
+      {
+        type: "input",
+        name: "managerOffice",
+        message: "What is the managers office number?",
+      },
+      {
+        type: "input",
+        name: "managerEmail",
+        message: "What is the managers email?",
+      },
+    ])
+    .then((answer) => {
+      team.push(
+        new Manager(
+          answer.managerName,
+          answer.managerId,
+          answer.managerEmail,
+          answer.managerOffice
+        )
+      );
+      console.log(team);
+      endQuestion();
+    });
+}
+
+function engineerQuestions() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "engineerName",
+        message: "What is the name of the engineer?",
+      },
+      {
+        type: "input",
+        name: "engineerId",
+        message: "What is the engineers ID?",
+      },
+      {
+        type: "input",
+        name: "engineerGithub",
+        message: "What is the engineers GitHub?",
+      },
+      {
+        type: "input",
+        name: "engineerEmail",
+        message: "What is the engineers email?",
+      },
+    ])
+    .then((answer) => {
+      team.push(
+        new Engineer(
+          answer.engineerName,
+          answer.engineerId,
+          answer.engineerEmail,
+          answer.engineerGithub
+        )
+      );
+      console.log(team);
+      endQuestion();
+    });
+}
+
+function internQuestions() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "internName",
+        message: "What is the name of the intern?",
+      },
+      {
+        type: "input",
+        name: "internId",
+        message: "What is the interns ID?",
+      },
+      {
+        type: "input",
+        name: "internSchool",
+        message: "What school did the intern go to?",
+      },
+      {
+        type: "input",
+        name: "internEmail",
+        message: "What is the intern email?",
+      },
+    ])
+    .then((banana) => {
+      team.push(
+        new Intern(
+          banana.internName,
+          banana.internId,
+          banana.internEmail,
+          banana.internSchool
+        )
+      );
+      console.log(team);
+      endQuestion();
+    });
+}
+
+function endQuestion() {
+  inquirer
+    .prompt({
+      type: "list",
+      name: "addAnother",
+      message: "Would you like to add anyone else to the team?",
+      choices: ["yes", "No"],
+    })
+    .then((answer) => {
+      if (answer.addAnother === "yes") {
+        startQuestion();
+      } else {
+        console.log("this will make pretty doc haha");
+      }
+    });
 }
