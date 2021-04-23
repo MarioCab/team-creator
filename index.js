@@ -158,7 +158,7 @@ function endQuestion() {
       if (answer.addAnother === "yes") {
         startQuestion();
       } else {
-        console.log("this will make pretty doc haha");
+        console.log(generateHTML(team));
       }
     });
 }
