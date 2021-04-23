@@ -6,6 +6,8 @@ const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 
+const { generateHTML } = require("./generatehtml");
+
 let team = [];
 
 function startQuestion() {
