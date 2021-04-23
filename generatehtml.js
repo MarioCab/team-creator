@@ -1,5 +1,5 @@
 function generateHTML(team) {
-return `
+  return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +9,20 @@ return `
     <title>Document</title>
 </head>
 <body>
-    
+    ${generateCards(team)}
 </body>
 </html>
-`
+`;
+}
+
+function generateCards(team) {
+  let array = [];
+
+  team.forEach((employee) => {
+    array.push(`<p>this is ${employee.name}</p>`);
+  });
+
+  return array.join("");
 }
 
 module.exports = {
