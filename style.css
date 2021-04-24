@@ -5,3 +5,24 @@
   padding: 2%;
   color: whitesmoke;
 }
+
+#cards {
+  margin: 5%;
+  border: thin black solid;
+  background-color: burlywood;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 25px;
+  border-bottom: thin black solid;
+}
+
+#roleText {
+  font-size: 20px;
+  color: black;
+}
+
+.card-text {
+  border-top: thin black solid;
+}
