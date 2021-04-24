@@ -59,6 +59,11 @@ function managerQuestions() {
         name: "managerEmail",
         message: "What is the managers email?",
       },
+      {
+        type: "input",
+        name: "managerTask",
+        message: "What is the managers task?",
+      },
     ])
     .then((answer) => {
       team.push(
@@ -66,6 +71,7 @@ function managerQuestions() {
           answer.managerName,
           answer.managerId,
           answer.managerEmail,
+          answer.managerTask,
           answer.managerOffice
         )
       );
@@ -97,6 +103,11 @@ function engineerQuestions() {
         name: "engineerEmail",
         message: "What is the engineers email?",
       },
+      {
+        type: "input",
+        name: "engineerTask",
+        message: "What is the engineers task?",
+      },
     ])
     .then((answer) => {
       team.push(
@@ -104,6 +115,7 @@ function engineerQuestions() {
           answer.engineerName,
           answer.engineerId,
           answer.engineerEmail,
+          answer.engineerTask,
           answer.engineerGithub
         )
       );
@@ -135,6 +147,11 @@ function internQuestions() {
         name: "internEmail",
         message: "What is the intern email?",
       },
+      {
+        type: "input",
+        name: "internTask",
+        message: "What is the interns task?",
+      },
     ])
     .then((banana) => {
       team.push(
@@ -142,6 +159,7 @@ function internQuestions() {
           banana.internName,
           banana.internId,
           banana.internEmail,
+          banana.internTask,
           banana.internSchool
         )
       );
