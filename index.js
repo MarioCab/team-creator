@@ -153,14 +153,14 @@ function internQuestions() {
         message: "What is the interns task?",
       },
     ])
-    .then((banana) => {
+    .then((answer) => {
       team.push(
         new Intern(
-          banana.internName,
-          banana.internId,
-          banana.internEmail,
-          banana.internTask,
-          banana.internSchool
+          answer.internName,
+          answer.internId,
+          answer.internEmail,
+          answer.internTask,
+          answer.internSchool
         )
       );
       console.log(team);
