@@ -33,17 +33,22 @@ function generateHTML(team) {
 function generateCards(team) {
   let array = [];
 
-  team.forEach((employee) => {
+  team.forEach((Employee) => {
     array.push(`
   <div class="col">
     <div class="card" id="cards" style="width: 18rem">
         <div class="card-body">
-            <h5 class="card-title">${employee.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${employee.role}</h6>
-            <h6 class="card-subtitle mb-2 text-muted"><a href="mailto:${employee.email}">${employee.email}</a></h6>
-            <h6 class="card-subtitle mb-2 text-muted">${employee.id}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">${employee.githubName}${employee.school}${employee.officeNumber}</h6>
-            <p class="card-text">${employee.task}</p>
+            <h5 class="card-title">${Employee.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${Employee.role}</h6>
+            <h6 class="card-subtitle mb-2 text-muted"><a href="mailto:${
+              Employee.email
+            }">${Employee.email}</a></h6>
+            <h6 class="card-subtitle mb-2 text-muted">${Employee.id}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">${
+              Employee.officeNumber || Employee.school || Employee.githubName
+            }
+            </h6>
+            <p class="card-text">${Employee.task}</p>
         </div>
     </div>
   </div>
